@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eray Demir Hair Studio | Randevu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0b0d;--bg2:#121216;--card:#16161b;--line:#2a2a31;--gold:#d4af37;--gold2:#f4d77a;--gold3:#8a6d1c;--text:#f2efe6;--muted:#9a968a;--red:#e07a7a;--green:#6fcf97}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:700;letter-spacing:.02em}
+.gold{background:linear-gradient(135deg,var(--gold3),var(--gold2) 45%,var(--gold) 70%,var(--gold3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+.eyebrow{letter-spacing:.35em;font-size:.72rem;color:var(--gold);text-transform:uppercase;text-align:center;margin-bottom:10px}
+.title{font-size:clamp(2rem,6vw,3rem);text-align:center;margin-bottom:40px}
+nav{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(11,11,13,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:10px}
+.brand{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;letter-spacing:.08em}
+nav .links{display:none;gap:24px}
+nav .links a{color:var(--muted);font-size:.85rem;text-decoration:none}
+nav .links a:hover{color:var(--gold2)}
+@media(min-width:820px){nav .links{display:flex}}
+nav .r{display:flex;gap:8px;align-items:center}
+.pill{font-size:.78rem;font-weight:600;padding:9px 14px;border-radius:999px;text-decoration:none;border:none;cursor:pointer;font-family:inherit}
+.pill.g{color:#111;background:linear-gradient(135deg,var(--gold2),var(--gold))}
+.pill.o{color:var(--gold2);background:transparent;border:1px solid var(--gold3)}
+.hero{min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:100px 0 60px;
+  background:radial-gradient(ellipse at 50% 30%,rgba(212,175,55,.14),transparent 60%),repeating-linear-gradient(135deg,#0d0d10 0 2px,#0b0b0d 2px 6px)}
+.ring{width:min(78vw,380px);aspect-ratio:1;border-radius:50%;margin:0 auto 28px;display:grid;place-items:center;border:2px solid var(--gold);box-shadow:0 0 0 6px #0b0b0d,0 0 0 7px var(--gold3),0 0 60px rgba(212,175,55,.25),inset 0 0 40px rgba(212,175,55,.08)}
+.ring .mono{font-family:'Cormorant Garamond',serif;font-size:clamp(4rem,16vw,6.5rem);font-weight:700;line-height:1}
+.ring .nm{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,6vw,2rem);font-weight:700;margin-top:4px}
+.ring .sub{letter-spacing:.5em;font-size:.65rem;color:var(--gold);margin-top:6px}
+.hero p.lead{color:var(--muted);max-width:480px;margin:0 auto 28px}
+.btn{display:inline-block;border:none;cursor:pointer;font:600 .95rem Inter,sans-serif;color:#111;padding:15px 34px;border-radius:999px;text-decoration:none;background:linear-gradient(135deg,var(--gold2),var(--gold) 60%,var(--gold3));box-shadow:0 8px 30px rgba(212,175,55,.25);transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:transparent;color:var(--gold2);border:1px solid var(--gold3);box-shadow:none}
+.btn[disabled]{opacity:.35;pointer-events:none}
+.stats{display:flex;justify-content:center;gap:34px;margin-top:44px;flex-wrap:wrap}
+.stats b{display:block;font-family:'Cormorant Garamond',serif;font-size:1.8rem}
+.stats span{font-size:.75rem;color:var(--muted);letter-spacing:.1em}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;transition:.2s}
+.svc:hover{border-color:var(--gold3);transform:translateY(-3px)}
+.svc .ic{font-size:1.6rem;margin-bottom:8px}
+.svc h3{font-size:1.4rem}
+.svc p{color:var(--muted);font-size:.85rem;margin:4px 0 14px}
+.svc .row{display:flex;justify-content:space-between;align-items:center;font-size:.85rem;color:var(--muted)}
+.svc .price{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--gold2);font-weight:700}
+
+/* hafta doluluk (herkese açık: sadece saatler) */
+.wk{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));max-width:1000px;margin:0 auto}
+.wd{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.wd.today{border-color:var(--gold)}
+.wd.past{opacity:.45}
+.wd .h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.wd .h b{font-family:'Cormorant Garamond',serif;font-size:1.25rem}
+.wd .h small{color:var(--muted);font-size:.72rem}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{font-size:.75rem;padding:3px 9px;border-radius:999px;background:rgba(212,175,55,.14);border:1px solid var(--gold3);color:var(--gold2)}
+.wd .free{color:var(--muted);font-size:.78rem}
+.wnote{text-align:center;color:var(--muted);font-size:.8rem;margin-top:14px}
+
+#randevu{background:linear-gradient(180deg,var(--bg),var(--bg2) 20%,var(--bg2) 80%,var(--bg))}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;max-width:720px;margin:0 auto}
+.steps{display:flex;gap:6px;margin-bottom:22px}
+.steps i{flex:1;height:3px;border-radius:3px;background:var(--line);transition:.3s}
+.steps i.on{background:linear-gradient(90deg,var(--gold3),var(--gold2))}
+.panel h3{font-size:1.6rem;margin-bottom:14px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#0f0f13;border:1px solid var(--line);color:var(--text);border-radius:12px;padding:14px 16px;cursor:pointer;text-align:left;font:inherit;width:100%}
+.opt small{color:var(--muted);display:block}
+.opt.sel{border-color:var(--gold);background:rgba(212,175,55,.08)}
+.opt b{color:var(--gold2);white-space:nowrap}
+.days{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:16px;scrollbar-width:none}
+.day{flex:0 0 66px;background:#0f0f13;border:1px solid var(--line);color:var(--text);border-radius:12px;padding:10px 0;text-align:center;cursor:pointer;font:inherit}
+.day small{display:block;color:var(--muted);font-size:.7rem}
+.day b{font-size:1.2rem;font-family:'Cormorant Garamond',serif}
+.day.sel{border-color:var(--gold);background:rgba(212,175,55,.1)}
+.day.off{opacity:.3;pointer-events:none}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media(min-width:560px){.slots{grid-template-columns:repeat(6,1fr)}}
+.slot{background:#0f0f13;border:1px solid var(--line);color:var(--text);border-radius:10px;padding:10px 0;cursor:pointer;font:500 .88rem Inter}
+.slot.sel{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#111;border-color:transparent}
+.slot.off{opacity:.25;text-decoration:line-through;pointer-events:none}
+label{display:block;font-size:.8rem;color:var(--muted);margin:12px 0 6px}
+input,select{width:100%;background:#0f0f13;border:1px solid var(--line);color:var(--text);border-radius:12px;padding:14px;font:inherit;font-size:1rem}
+input:focus,select:focus{outline:none;border-color:var(--gold)}
+.nav2{display:flex;gap:10px;margin-top:22px;justify-content:space-between}
+.sum{background:#0f0f13;border:1px dashed var(--gold3);border-radius:14px;padding:16px;margin-bottom:4px}
+.sum div{display:flex;justify-content:space-between;padding:5px 0;font-size:.92rem}
+.sum div span:first-child{color:var(--muted)}
+.ok{text-align:center;padding:10px 0}
+.ok .chk{width:70px;height:70px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;font-size:2rem;color:#111;background:linear-gradient(135deg,var(--gold2),var(--gold))}
+.ok p{color:var(--muted);margin:6px 0 18px}
+.my{max-width:720px;margin:26px auto 0}
+.my h4{font-size:.8rem;color:var(--muted);letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px}
+.bk{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:8px;font-size:.88rem}
+.bk button{background:none;border:1px solid var(--line);color:var(--red);border-radius:8px;padding:6px 10px;cursor:pointer;font:inherit;font-size:.78rem}
+.team{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));max-width:760px;margin:0 auto}
+.mem{text-align:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 16px}
+.av{width:84px;height:84px;border-radius:50%;margin:0 auto 12px;display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--gold2);border:1px solid var(--gold3);background:radial-gradient(circle,rgba(212,175,55,.15),transparent)}
+.mem small{color:var(--muted)}
+.info{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));max-width:820px;margin:0 auto}
+.info .box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.info h3{font-size:1.3rem;color:var(--gold2);margin-bottom:8px}
+.info p,.info li{color:var(--muted);font-size:.92rem;list-style:none}
+.info li{display:flex;justify-content:space-between;padding:3px 0}
+footer{border-top:1px solid var(--line);text-align:center;padding:28px 20px 90px;color:var(--muted);font-size:.8rem}
+.fab{position:fixed;right:16px;bottom:16px;z-index:40;width:54px;height:54px;border-radius:50%;background:#25d366;display:grid;place-items:center;text-decoration:none;font-size:1.6rem;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+
+/* ===== YÖNETİCİ ===== */
+#adm{position:fixed;inset:0;z-index:100;background:var(--bg);overflow:auto;display:none}
+#adm.on{display:block}
+.a-in{max-width:1100px;margin:0 auto;padding:16px 16px 60px}
+.a-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
+.a-top h2{font-size:1.7rem}
+.a-tabs{display:flex;gap:6px;overflow-x:auto;margin-bottom:16px;padding-bottom:4px;scrollbar-width:none}
+.a-tab{flex:0 0 auto;background:var(--card);border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:9px 16px;font:500 .85rem Inter;cursor:pointer}
+.a-tab.on{border-color:var(--gold);color:var(--gold2);background:rgba(212,175,55,.08)}
+.a-nav{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:14px}
+.a-nav .t{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;text-align:center;flex:1}
+.a-nav button{background:var(--card);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:8px 14px;cursor:pointer;font:inherit}
+.a-nav .today{font-size:.78rem;color:var(--gold2)}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px}
+@media(min-width:700px){.cards{grid-template-columns:repeat(4,1fr)}}
+.sc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.sc span{font-size:.7rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+.sc b{display:block;font-family:'Cormorant Garamond',serif;font-size:1.7rem;margin-top:2px}
+.a-row{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:8px;display:grid;grid-template-columns:58px 1fr auto;gap:10px;align-items:center}
+.a-row.paid{border-color:rgba(111,207,151,.4)}
+.a-row .tm{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--gold2);line-height:1.1}
+.a-row .nm{font-weight:600}
+.a-row small{display:block;color:var(--muted);font-size:.78rem}
+.a-row .pr{text-align:right;font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700}
+.a-act{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap}
+.a-act a,.a-act button{flex:1;min-width:70px;text-align:center;text-decoration:none;background:#0f0f13;border:1px solid var(--line);color:var(--text);border-radius:10px;padding:8px;font:inherit;font-size:.78rem;cursor:pointer}
+.a-act .pay{border-color:rgba(111,207,151,.5);color:var(--green)}
+.a-act .del{color:var(--red)}
+.tag{display:inline-block;font-size:.68rem;padding:1px 8px;border-radius:999px;background:rgba(111,207,151,.12);color:var(--green);margin-left:6px}
+.a-empty{text-align:center;color:var(--muted);padding:36px 0}
+.dl{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:18px 0 8px;display:flex;justify-content:space-between}
+.dl span{color:var(--muted);letter-spacing:.02em;text-transform:none}
+.wgrid{display:grid;grid-template-columns:repeat(7,minmax(150px,1fr));gap:8px;overflow-x:auto;padding-bottom:8px}
+.wcol{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;min-height:120px}
+.wcol.today{border-color:var(--gold)}
+.wcol .wh{border-bottom:1px solid var(--line);padding-bottom:6px;margin-bottom:8px}
+.wcol .wh b{font-family:'Cormorant Garamond',serif;font-size:1.15rem}
+.wcol .wh small{display:block;color:var(--muted);font-size:.7rem}
+.wi{background:#0f0f13;border-left:2px solid var(--gold);border-radius:6px;padding:5px 8px;margin-bottom:5px;font-size:.78rem}
+.wi.paid{border-left-color:var(--green)}
+.wi b{color:var(--gold2)}
+.wi small{display:block;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th,td{padding:10px 8px;text-align:right;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--muted);font-weight:500;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase}
+tfoot td{font-weight:700;color:var(--gold2);border-top:1px solid var(--gold3);border-bottom:none}
+.bar{height:5px;border-radius:5px;background:linear-gradient(90deg,var(--gold3),var(--gold2));margin-top:4px;margin-left:auto}
+.tw{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 12px;overflow-x:auto}
+.a-note{background:rgba(212,175,55,.08);border:1px dashed var(--gold3);border-radius:12px;padding:10px 12px;color:var(--muted);font-size:.78rem;margin-bottom:14px}
+.a-form{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;max-width:520px}
+.a-lg{min-height:80vh;display:grid;place-items:center;padding:20px}
+.a-lgbox{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px;width:100%;max-width:370px;text-align:center}
+.a-err{color:var(--red);font-size:.85rem;min-height:1.4em;margin:6px 0}
+.dlg-ov{position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.7);display:grid;place-items:center;padding:20px}
+.dlg{background:var(--card);border:1px solid var(--gold3);border-radius:18px;padding:22px;max-width:360px;width:100%;text-align:center}
+.dlg p{margin-bottom:18px;line-height:1.5}
+.dlg-row{display:flex;gap:10px}
+.dlg-row .btn{flex:1;padding:13px 10px;font-size:.88rem}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <div class="brand gold">ERAY DEMİR</div>
+  <div class="links"><a href="#hizmetler">Hizmetler</a><a href="#doluluk">Bu Hafta</a><a href="#ekip">Ekip</a><a href="#iletisim">İletişim</a></div>
+  <div class="r"><a class="pill g" href="#randevu">Randevu Al</a><button class="pill o" id="admBtn">🔒 Yönetici</button></div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="ring"><div>
+    <div class="mono gold">ED</div><div class="nm gold">ERAY DEMİR</div><div class="sub">HAIR STUDIO</div>
+  </div></div>
+  <p class="lead">Yeni bir başlangıç, yeni bir tarz ve aynı özen. Mahmutlar'ın kalbinde, size özel erkek kuaförlüğü deneyimi.</p>
+  <a class="btn" href="#randevu">Hemen Randevu Al</a>
+  <div class="stats">
+    <div><b class="gold">5★</b><span>MÜŞTERİ MEMNUNİYETİ</span></div>
+    <div><b class="gold">7/24</b><span>ONLINE RANDEVU</span></div>
+    <div><b class="gold">%100</b><span>HİJYEN</span></div>
+  </div>
+</div></header>
+
+<section id="hizmetler"><div class="wrap">
+  <div class="eyebrow">Hizmetlerimiz</div><h2 class="title gold">Size Özel Bakım</h2>
+  <div class="grid" id="svcGrid"></div>
+</div></section>
+
+<section id="doluluk"><div class="wrap">
+  <div class="eyebrow">Bu Hafta</div><h2 class="title gold">Dolu Saatler</h2>
+  <div class="wk" id="wk"></div>
+  <p class="wnote">Burada sadece dolu saatler görünür. Boş bir saat seçip randevunuzu aşağıdan alabilirsiniz.</p>
+</div></section>
+
+<section id="randevu"><div class="wrap">
+  <div class="eyebrow">Rezervasyon</div><h2 class="title gold">Online Randevu</h2>
+  <div class="panel"><div class="steps" id="steps"><i></i><i></i><i></i><i></i></div><div id="stage"></div></div>
+  <div class="my" id="my"></div>
+</div></section>
+
+<section id="ekip"><div class="wrap">
+  <div class="eyebrow">Ekibimiz</div><h2 class="title gold">Ustalarımız</h2>
+  <div class="team" id="team"></div>
+</div></section>
+
+<section id="iletisim"><div class="wrap">
+  <div class="eyebrow">İletişim</div><h2 class="title gold">Bizi Ziyaret Edin</h2>
+  <div class="info">
+    <div class="box"><h3>Adres</h3><p>Mahmutlar, Antalya / Türkiye</p>
+      <p style="margin-top:10px"><a style="color:var(--gold2)" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Eray+Demir+Hair+Studio+Mahmutlar+Antalya">Haritada aç →</a></p></div>
+    <div class="box"><h3>Çalışma Saatleri</h3><ul id="hours"></ul></div>
+    <div class="box"><h3>Sosyal Medya</h3><p><a style="color:var(--gold2)" target="_blank" rel="noopener" href="https://instagram.com/eraydemirhairstudio">@eraydemirhairstudio</a></p></div>
+  </div>
+</div></section>
+
+<footer>© <span id="yr"></span> Eray Demir Hair Studio · Tüm hakları saklıdır.</footer>
+<a class="fab" id="wa" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+
+<div id="adm"><div class="a-in" id="admIn"></div></div>
+
+<script>
+/* ===== AYARLAR ===== */
+const CONFIG={
+  phone:"905000000000",
+  open:10,close:20,step:30,closedDays:[0],daysAhead:21,
+  adminPass:"eray123", // DENEME: gerçek güvenlik değildir (bkz. not)
+  services:[
+    {id:1,ic:"✂️",name:"Saç Kesimi",desc:"Yıkama ve şekillendirme dahil",min:30,price:400},
+    {id:2,ic:"🧔",name:"Sakal Tıraşı",desc:"Sıcak havlu ve bakım",min:30,price:250},
+    {id:3,ic:"👑",name:"Saç + Sakal",desc:"Komple bakım paketi",min:60,price:600},
+    {id:4,ic:"🧴",name:"Cilt Bakımı",desc:"Maske ve temizlik",min:30,price:300},
+    {id:5,ic:"🤵",name:"Damat Tıraşı",desc:"Özel gün için tam hazırlık",min:90,price:1500},
+    {id:6,ic:"👦",name:"Çocuk Tıraşı",desc:"12 yaş altı",min:30,price:300}
+  ],
+  barbers:[{id:0,name:"Fark etmez",role:"İlk boş usta"},{id:1,name:"Eray Demir",role:"Kurucu & Usta"},{id:2,name:"Usta 2",role:"Berber"}]
+};
+
+/* ===== YARDIMCILAR ===== */
+const $=s=>document.querySelector(s);
+const DAYS=["Paz","Pzt","Sal","Çar","Per","Cum","Cmt"];
+const DAYS_L=["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"];
+const MONTHS=["Oca","Şub","Mar","Nis","May","Haz","Tem","Ağu","Eyl","Eki","Kas","Ara"];
+const MONTHS_L=["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
+const tl=n=>Math.round(n).toLocaleString("tr-TR")+" ₺";
+const pad=n=>String(n).padStart(2,"0");
+const iso=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const pd=s=>new Date(s+"T00:00:00");
+const addDays=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x};
+const weekStart=d=>{const x=new Date(d);x.setHours(0,0,0,0);x.setDate(x.getDate()-((x.getDay()+6)%7));return x};
+const dmy=s=>s.split("-").reverse().join(".");
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const svc=id=>CONFIG.services.find(s=>s.id===id)||{name:"Hizmet",price:0,min:30};
+const barber=id=>CONFIG.barbers.find(b=>b.id===id)||{name:""};
+function E(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
+// Tarayıcının confirm()/alert() penceresi bazı telefon/önizleme ekranlarında engelleniyor; kendi pencerem:
+function dialog(msg,buttons){
+  const ov=E("div","dlg-ov"),bx=E("div","dlg"),p=E("p",null,msg),row=E("div","dlg-row");
+  const close=()=>ov.remove();
+  buttons.forEach(([label,cls,fn])=>{const b=E("button","btn"+(cls?" "+cls:""),label);b.onclick=()=>{close();if(fn)fn()};row.append(b)});
+  bx.append(p,row);ov.append(bx);ov.onclick=e=>{if(e.target===ov)close()};document.body.append(ov);
+}
+const ask=(msg,onYes)=>dialog(msg,[["Vazgeç","ghost"],["Evet, iptal et","",onYes]]);
+const say=msg=>dialog(msg,[["Tamam","" ]]);
+
+/* ===== VERİ (bu tarayıcıda) ===== */
+const rd=(k,f)=>{try{return JSON.parse(localStorage.getItem(k)||f)}catch(e){return JSON.parse(f)}};
+let mem=rd("ed2_bookings","[]");   // tüm randevular (yönetici görür)
+let mine=rd("ed2_mine","[]");      // bu cihazdan alınanların sadece id'leri
+const saveAll=()=>{try{localStorage.setItem("ed2_bookings",JSON.stringify(mem));localStorage.setItem("ed2_mine",JSON.stringify(mine))}catch(e){}};
+const taken=(date,time,barberId)=>mem.some(b=>b.date===date&&b.time===time&&(barberId===0||b.barber===0||b.barber===barberId));
+const slotsFor=()=>{const o=[];for(let m=CONFIG.open*60;m<CONFIG.close*60;m+=CONFIG.step)o.push(`${pad(Math.floor(m/60))}:${pad(m%60)}`);return o};
+const past=(date,time)=>{const[h,m]=time.split(":").map(Number),d=pd(date);d.setHours(h,m);return d.getTime()<Date.now()+30*60000};
+function addBooking(o){
+  const b={id:"b"+Date.now()+Math.random().toString(36).slice(2,6),svc:o.svc,barber:o.barber,date:o.date,time:o.time,name:o.name,phone:o.phone,
+    price:svc(o.svc).price,paid:!!o.paid,pay:o.pay||"",manual:!!o.manual,createdAt:Date.now()};
+  mem.push(b);saveAll();return b;
+}
+
+/* ===== STATİK BÖLÜMLER ===== */
+$("#yr").textContent=new Date().getFullYear();
+$("#wa").href=`https://wa.me/${CONFIG.phone}?text=${encodeURIComponent("Merhaba, randevu almak istiyorum.")}`;
+$("#svcGrid").innerHTML=CONFIG.services.map(s=>`<div class="svc"><div class="ic">${s.ic}</div><h3>${s.name}</h3><p>${s.desc}</p><div class="row"><span>⏱ ${s.min} dk</span><span class="price">${tl(s.price)}</span></div></div>`).join("");
+$("#team").innerHTML=CONFIG.barbers.filter(b=>b.id).map(b=>`<div class="mem"><div class="av">${esc(b.name[0])}</div><h3>${esc(b.name)}</h3><small>${esc(b.role)}</small></div>`).join("");
+$("#hours").innerHTML=[1,2,3,4,5,6,0].map(d=>`<li><span>${DAYS_L[d]}</span><span>${CONFIG.closedDays.includes(d)?"Kapalı":pad(CONFIG.open)+":00 - "+pad(CONFIG.close)+":00"}</span></li>`).join("");
+
+/* ===== HERKESE AÇIK: BU HAFTA SADECE DOLU SAATLER ===== */
+function renderWeekPublic(){
+  const ws=weekStart(new Date()),todayS=iso(new Date());
+  $("#wk").innerHTML=Array.from({length:7},(_,i)=>{
+    const d=addDays(ws,i),s=iso(d),closed=CONFIG.closedDays.includes(d.getDay());
+    const times=[...new Set(mem.filter(b=>b.date===s).map(b=>b.time))].sort();
+    return `<div class="wd ${s===todayS?"today":""} ${s<todayS?"past":""}">
+      <div class="h"><b>${DAYS_L[d.getDay()]}</b><small>${d.getDate()} ${MONTHS[d.getMonth()]}</small></div>
+      ${closed?`<div class="free">Kapalı</div>`:times.length?`<div class="chips">${times.map(t=>`<span class="chip">${t}</span>`).join("")}</div>`:`<div class="free">Tüm saatler boş</div>`}</div>`;
+  }).join("");
+}
+
+/* ===== RANDEVU AKIŞI ===== */
+let S={step:0,svc:null,barber:0,date:null,time:null,name:"",phone:"",done:null};
+function render(){
+  document.querySelectorAll("#steps i").forEach((el,i)=>el.classList.toggle("on",i<=S.step));
+  const st=$("#stage");
+  if(S.done){
+    const b=S.done,sv=svc(b.svc),d=pd(b.date);
+    const msg=`Merhaba, ${dmy(b.date)} saat ${b.time} için ${sv.name} randevusu aldım. Ad: ${b.name}`;
+    st.innerHTML=`<div class="ok"><div class="chk">✓</div><h3 class="gold">Randevunuz Alındı</h3>
+      <p>${d.getDate()} ${MONTHS[d.getMonth()]} ${DAYS[d.getDay()]} · ${b.time}<br>${esc(sv.name)} · ${tl(sv.price)}</p>
+      <a class="btn" target="_blank" rel="noopener" href="https://wa.me/${CONFIG.phone}?text=${encodeURIComponent(msg)}">WhatsApp ile Onayla</a>
+      <div style="margin-top:12px"><button class="btn ghost" id="again">Yeni Randevu</button></div></div>`;
+    $("#again").onclick=()=>{S={step:0,svc:null,barber:0,date:null,time:null,name:"",phone:"",done:null};render()};
+    renderMy();return;
+  }
+  if(S.step===0){
+    st.innerHTML=`<h3>Hizmet seçin</h3><div class="opts">${CONFIG.services.map(s=>`<button class="opt ${S.svc===s.id?"sel":""}" data-id="${s.id}"><span>${s.ic} ${s.name}<small>${s.min} dk</small></span><b>${tl(s.price)}</b></button>`).join("")}</div>
+      <label>Usta</label><select id="barber">${CONFIG.barbers.map(b=>`<option value="${b.id}" ${S.barber===b.id?"selected":""}>${esc(b.name)}</option>`).join("")}</select>
+      <div class="nav2"><span></span><button class="btn" id="next" ${S.svc?"":"disabled"}>Devam →</button></div>`;
+    st.querySelectorAll(".opt").forEach(o=>o.onclick=()=>{S.svc=+o.dataset.id;render()});
+    $("#barber").onchange=e=>S.barber=+e.target.value;
+    $("#next").onclick=()=>{S.step=1;render()};
+  }else if(S.step===1){
+    const days=Array.from({length:CONFIG.daysAhead},(_,i)=>addDays(new Date(),i));
+    st.innerHTML=`<h3>Tarih ve saat</h3>
+      <div class="days">${days.map(d=>`<button class="day ${CONFIG.closedDays.includes(d.getDay())?"off":""} ${S.date===iso(d)?"sel":""}" data-d="${iso(d)}"><small>${DAYS[d.getDay()]}</small><b>${d.getDate()}</b><small>${MONTHS[d.getMonth()]}</small></button>`).join("")}</div>
+      <div class="slots">${S.date?slotsFor().map(x=>{const off=taken(S.date,x,S.barber)||past(S.date,x);return `<button class="slot ${off?"off":""} ${S.time===x?"sel":""}" data-t="${x}">${x}</button>`}).join(""):`<p style="grid-column:1/-1;color:var(--muted)">Önce bir gün seçin.</p>`}</div>
+      <div class="nav2"><button class="btn ghost" id="back">← Geri</button><button class="btn" id="next" ${S.date&&S.time?"":"disabled"}>Devam →</button></div>`;
+    st.querySelectorAll(".day").forEach(b=>b.onclick=()=>{S.date=b.dataset.d;S.time=null;render()});
+    st.querySelectorAll(".slot").forEach(b=>b.onclick=()=>{S.time=b.dataset.t;render()});
+    $("#back").onclick=()=>{S.step=0;render()};$("#next").onclick=()=>{S.step=2;render()};
+  }else if(S.step===2){
+    st.innerHTML=`<h3>Bilgileriniz</h3>
+      <label>Ad Soyad</label><input id="nm" autocomplete="name" placeholder="Adınız">
+      <label>Telefon</label><input id="ph" type="tel" autocomplete="tel" placeholder="05XX XXX XX XX">
+      <div class="nav2"><button class="btn ghost" id="back">← Geri</button><button class="btn" id="next" disabled>Devam →</button></div>`;
+    $("#nm").value=S.name;$("#ph").value=S.phone;
+    const chk=()=>{S.name=$("#nm").value.trim();S.phone=$("#ph").value.trim();$("#next").disabled=!(S.name.length>=2&&S.phone.replace(/\D/g,"").length>=10)};
+    $("#nm").oninput=chk;$("#ph").oninput=chk;chk();
+    $("#back").onclick=()=>{S.step=1;render()};$("#next").onclick=()=>{S.step=3;render()};
+  }else if(S.step===3){
+    const sv=svc(S.svc),d=pd(S.date);
+    st.innerHTML=`<h3>Onay</h3><div class="sum">
+      <div><span>Hizmet</span><span>${esc(sv.name)}</span></div><div><span>Usta</span><span>${esc(barber(S.barber).name)}</span></div>
+      <div><span>Tarih</span><span>${d.getDate()} ${MONTHS[d.getMonth()]} ${DAYS[d.getDay()]}</span></div><div><span>Saat</span><span>${S.time}</span></div>
+      <div><span>Ad</span><span>${esc(S.name)}</span></div><div><span>Telefon</span><span>${esc(S.phone)}</span></div>
+      <div><span>Tutar</span><b class="gold">${tl(sv.price)}</b></div></div>
+      <div class="nav2"><button class="btn ghost" id="back">← Geri</button><button class="btn" id="ok">Randevuyu Onayla</button></div>`;
+    $("#back").onclick=()=>{S.step=2;render()};
+    $("#ok").onclick=()=>{
+      if(taken(S.date,S.time,S.barber)){say("Bu saat az önce doldu, lütfen başka saat seçin.");S.step=1;S.time=null;render();return}
+      const b=addBooking({svc:S.svc,barber:S.barber,date:S.date,time:S.time,name:S.name,phone:S.phone});
+      mine.push(b.id);saveAll();S.done=b;render();renderWeekPublic();
+    };
+  }
+  renderMy();
+}
+// Müşteri yalnızca KENDİ aldığı randevuları görür
+function renderMy(){
+  const list=mem.filter(b=>mine.includes(b.id)&&pd(b.date).getTime()+86400000>Date.now()).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
+  $("#my").innerHTML=list.length?`<h4>Randevularım</h4>`+list.map(b=>`<div class="bk"><span>${dmy(b.date)} · ${b.time}<br><small style="color:var(--muted)">${esc(svc(b.svc).name)}</small></span><button data-id="${b.id}">İptal</button></div>`).join(""):"";
+  document.querySelectorAll(".bk button").forEach(btn=>btn.onclick=()=>{
+    const id=btn.dataset.id;
+    ask("Randevunuz iptal edilsin mi?",()=>{
+      mem=mem.filter(x=>x.id!==id);mine=mine.filter(x=>x!==id);saveAll();S.done=null;render();renderWeekPublic();
+    });
+  });
+}
+
+/* ===================== YÖNETİCİ PANELİ ===================== */
+const adm=$("#adm"),admIn=$("#admIn");
+let A={tab:"day",day:iso(new Date()),wOff:0,mY:new Date().getFullYear(),mM:new Date().getMonth()};
+const isAdmin=()=>{try{return sessionStorage.getItem("ed2_admin")==="1"}catch(e){return window.__adm===true}};
+const setAdmin=v=>{try{sessionStorage.setItem("ed2_admin",v?"1":"0")}catch(e){}window.__adm=v};
+function openAdmin(){adm.classList.add("on");document.body.style.overflow="hidden";isAdmin()?panel():login()}
+function closeAdmin(){adm.classList.remove("on");document.body.style.overflow="";renderWeekPublic();renderMy()}
+$("#admBtn").onclick=openAdmin;
+
+function login(){
+  admIn.replaceChildren();
+  const lg=E("div","a-lg"),f=E("form","a-lgbox");
+  const h=E("h2","gold","Yönetici Girişi");h.style.cssText="font-size:2rem";
+  const p=E("p",null,"Randevular sadece yöneticiye açıktır.");p.style.cssText="color:var(--muted);font-size:.85rem;margin:4px 0 16px";
+  const inp=E("input");inp.type="password";inp.placeholder="Şifre";inp.autocomplete="current-password";
+  const er=E("div","a-err"),bt=E("button","btn","Giriş Yap");bt.style.width="100%";
+  const cl=E("button","btn ghost","Siteye dön");cl.type="button";cl.style.cssText="width:100%;margin-top:10px";cl.onclick=closeAdmin;
+  f.append(h,p,inp,er,bt,cl);lg.append(f);admIn.append(lg);
+  f.onsubmit=e=>{e.preventDefault();if(inp.value===CONFIG.adminPass){setAdmin(true);panel()}else{er.textContent="Şifre yanlış"}};
+  setTimeout(()=>inp.focus(),50);
+}
+const sum=(arr)=>arr.reduce((t,b)=>t+(+b.price||0),0);
+const paidSum=arr=>sum(arr.filter(b=>b.paid));
+const byDay=s=>mem.filter(b=>b.date===s).sort((a,b)=>a.time.localeCompare(b.time));
+
+function panel(){
+  admIn.replaceChildren();
+  const top=E("div","a-top"),h=E("h2","gold","Yönetici Paneli");
+  const out=E("div");out.style.cssText="display:flex;gap:8px";
+  const site=E("button","pill o","Siteye dön");site.onclick=closeAdmin;
+  const lo=E("button","pill o","Çıkış");lo.onclick=()=>{setAdmin(false);closeAdmin()};
+  out.append(site,lo);top.append(h,out);admIn.append(top);
+  admIn.append(E("div","a-note","Deneme sürümü: randevular ve şifre bu tarayıcıda durur, gerçek güvenlik sağlamaz. Gerçek kullanım için sunuculu sürüm gerekir. Şifre: "+CONFIG.adminPass));
+  const tabs=E("div","a-tabs");
+  [["day","📅 Günlük"],["week","🗓 Hafta"],["future","🔮 Gelecek"],["acc","💰 Hesap"],["new","➕ Yeni Randevu"]].forEach(([k,l])=>{
+    const t=E("button","a-tab"+(A.tab===k?" on":""),l);t.onclick=()=>{A.tab=k;panel()};tabs.append(t);
+  });
+  admIn.append(tabs);
+  ({day:tabDay,week:tabWeek,future:tabFuture,acc:tabAcc,new:tabNew})[A.tab]();
+}
+function statCards(arr){
+  const c=E("div","cards");
+  [["Randevu",arr.length],["Beklenen",tl(sum(arr))],["Tahsil edilen",tl(paidSum(arr))],["Kalan",tl(sum(arr)-paidSum(arr))]].forEach(([l,v])=>{
+    const d=E("div","sc");d.append(E("span",null,l),E("b","gold",v));c.append(d);
+  });return c;
+}
+function rowFor(b,full){
+  const r=E("div","a-row"+(b.paid?" paid":""));
+  r.append(E("div","tm",b.time));
+  const i=E("div"),n=E("div","nm",b.name);
+  if(b.paid)n.append(E("span","tag","✓ "+(b.pay==="kart"?"Kart":"Nakit")));
+  i.append(n,E("small",null,`${svc(b.svc).name} · ${barber(b.barber).name}`),E("small",null,(full?dmy(b.date)+" · ":"")+b.phone));
+  r.append(i,E("div","pr",tl(b.price)));
+  const ac=E("div","a-act"),dg=b.phone.replace(/\D/g,"");
+  if(!b.paid){
+    const n1=E("button","pay","💵 Nakit");n1.onclick=()=>{b.paid=true;b.pay="nakit";saveAll();panel()};
+    const k1=E("button","pay","💳 Kart");k1.onclick=()=>{b.paid=true;b.pay="kart";saveAll();panel()};
+    ac.append(n1,k1);
+  }else{const u=E("button",null,"↩ Ödemeyi geri al");u.onclick=()=>{b.paid=false;b.pay="";saveAll();panel()};ac.append(u)}
+  const call=E("a",null,"Ara");call.href="tel:"+dg;
+  const w=E("a",null,"WhatsApp");w.href="https://wa.me/"+(dg.startsWith("0")?"90"+dg.slice(1):dg.startsWith("90")?dg:"90"+dg);w.target="_blank";w.rel="noopener";
+  const del=E("button","del","İptal");del.onclick=()=>ask(`${b.name} · ${dmy(b.date)} ${b.time} randevusu iptal edilsin mi?`,()=>{mem=mem.filter(x=>x.id!==b.id);mine=mine.filter(x=>x!==b.id);saveAll();panel()});
+  ac.append(call,w,del);r.append(ac);return r;
+}
+function navBar(title,onPrev,onNext,onToday,sub){
+  const n=E("div","a-nav"),p=E("button",null,"‹"),x=E("button",null,"›");
+  const t=E("div","t",title);if(sub){const s=E("div","today",sub);t.append(s);s.style.cursor="pointer";s.onclick=onToday}
+  p.onclick=onPrev;x.onclick=onNext;n.append(p,t,x);return n;
+}
+
+/* --- Günlük --- */
+function tabDay(){
+  const d=pd(A.day),isT=A.day===iso(new Date());
+  admIn.append(navBar(`${d.getDate()} ${MONTHS_L[d.getMonth()]} ${DAYS_L[d.getDay()]}`,
+    ()=>{A.day=iso(addDays(d,-1));panel()},()=>{A.day=iso(addDays(d,1));panel()},()=>{A.day=iso(new Date());panel()},isT?"Bugün":"Bugüne dön"));
+  const list=byDay(A.day);
+  admIn.append(statCards(list));
+  if(list.length){
+    const nk=sum(list.filter(b=>b.paid&&b.pay==="nakit")),kt=sum(list.filter(b=>b.paid&&b.pay==="kart"));
+    const sm=E("div","a-note",`Gün sonu: Nakit ${tl(nk)} · Kart ${tl(kt)} · Toplam kasa ${tl(nk+kt)}`);admIn.append(sm);
+    list.forEach(b=>admIn.append(rowFor(b)));
+  }else admIn.append(E("div","a-empty","Bu gün için randevu yok."));
+}
+/* --- Hafta --- */
+function tabWeek(){
+  const ws=addDays(weekStart(new Date()),A.wOff*7),we=addDays(ws,6);
+  const label=`${ws.getDate()} ${MONTHS[ws.getMonth()]} – ${we.getDate()} ${MONTHS[we.getMonth()]}`;
+  admIn.append(navBar(label,()=>{A.wOff--;panel()},()=>{A.wOff++;panel()},()=>{A.wOff=0;panel()},A.wOff===0?"Bu hafta":A.wOff>0?"Bu haftaya dön":"Bu haftaya dön"));
+  const all=[];const g=E("div","wgrid"),ts=iso(new Date());
+  for(let i=0;i<7;i++){
+    const d=addDays(ws,i),s=iso(d),l=byDay(s);all.push(...l);
+    const c=E("div","wcol"+(s===ts?" today":""));
+    const hd=E("div","wh");hd.append(E("b",null,DAYS_L[d.getDay()]),E("small",null,`${d.getDate()} ${MONTHS[d.getMonth()]} · ${l.length} randevu · ${tl(sum(l))}`));c.append(hd);
+    if(!l.length)c.append(E("small",null,CONFIG.closedDays.includes(d.getDay())?"Kapalı":"Boş"));
+    l.forEach(b=>{const w=E("div","wi"+(b.paid?" paid":""));w.append(E("b",null,b.time+" "),document.createTextNode(b.name),E("small",null,svc(b.svc).name+" · "+tl(b.price)));
+      w.style.cursor="pointer";w.onclick=()=>{A.day=s;A.tab="day";panel()};c.append(w)});
+    g.append(c);
+  }
+  admIn.append(statCards(all),g);
+}
+/* --- Gelecek --- */
+function tabFuture(){
+  const tom=iso(addDays(new Date(),1)),list=mem.filter(b=>b.date>=tom).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
+  admIn.append(statCards(list));
+  if(!list.length){admIn.append(E("div","a-empty","Gelecek için randevu yok."));return}
+  let lastW="",lastD="";const thisWs=weekStart(new Date());
+  list.forEach(b=>{
+    const ws=weekStart(pd(b.date)),wk=iso(ws);
+    if(wk!==lastW){lastW=wk;const diff=Math.round((ws-thisWs)/(7*86400000));
+      const nm=diff===0?"Bu hafta":diff===1?"Gelecek hafta":diff+" hafta sonra";
+      const wl=list.filter(x=>iso(weekStart(pd(x.date)))===wk);
+      const h=E("div","dl",nm);h.append(E("span",null,`${ws.getDate()} ${MONTHS[ws.getMonth()]} – ${addDays(ws,6).getDate()} ${MONTHS[addDays(ws,6).getMonth()]} · ${wl.length} randevu · ${tl(sum(wl))}`));
+      h.style.cssText="margin-top:24px;font-size:.95rem;color:var(--gold2)";admIn.append(h);lastD="";}
+    if(b.date!==lastD){lastD=b.date;const d=pd(b.date);const dh=E("div","dl",`${d.getDate()} ${MONTHS_L[d.getMonth()]} ${DAYS_L[d.getDay()]}`);dh.style.margin="12px 0 6px";admIn.append(dh)}
+    admIn.append(rowFor(b));
+  });
+}
+/* --- Hesap (günlük döküm) --- */
+function tabAcc(){
+  admIn.append(navBar(`${MONTHS_L[A.mM]} ${A.mY}`,
+    ()=>{A.mM--;if(A.mM<0){A.mM=11;A.mY--}panel()},()=>{A.mM++;if(A.mM>11){A.mM=0;A.mY++}panel()},
+    ()=>{const n=new Date();A.mY=n.getFullYear();A.mM=n.getMonth();panel()},"Bu aya dön"));
+  const pre=`${A.mY}-${pad(A.mM+1)}-`,list=mem.filter(b=>b.date.startsWith(pre));
+  admIn.append(statCards(list));
+  const days={};list.forEach(b=>(days[b.date]=days[b.date]||[]).push(b));
+  const keys=Object.keys(days).sort();
+  if(!keys.length){admIn.append(E("div","a-empty","Bu ay için kayıt yok."));return}
+  const max=Math.max(...keys.map(k=>sum(days[k])));
+  const tw=E("div","tw"),tb=document.createElement("table");
+  tb.innerHTML=`<thead><tr><th>Gün</th><th>Rnd.</th><th>Ciro</th><th>Nakit</th><th>Kart</th><th>Bekleyen</th></tr></thead>`;
+  const body=document.createElement("tbody");
+  keys.forEach(k=>{
+    const l=days[k],d=pd(k),nk=sum(l.filter(b=>b.paid&&b.pay==="nakit")),kt=sum(l.filter(b=>b.paid&&b.pay==="kart")),bk=sum(l)-nk-kt;
+    const tr=document.createElement("tr");tr.style.cursor="pointer";
+    const cells=[`${d.getDate()} ${MONTHS[d.getMonth()]} ${DAYS[d.getDay()]}`,l.length,tl(sum(l)),tl(nk),tl(kt),tl(bk)];
+    cells.forEach((v,i)=>{const td=document.createElement("td");td.textContent=v;if(i===2){const b=E("div","bar");b.style.width=Math.max(8,sum(l)/max*100)+"%";td.append(b)}tr.append(td)});
+    tr.onclick=()=>{A.day=k;A.tab="day";panel()};body.append(tr);
+  });
+  const tf=document.createElement("tfoot"),nk=sum(list.filter(b=>b.paid&&b.pay==="nakit")),kt=sum(list.filter(b=>b.paid&&b.pay==="kart"));
+  tf.innerHTML=`<tr><td>TOPLAM</td><td>${list.length}</td><td>${tl(sum(list))}</td><td>${tl(nk)}</td><td>${tl(kt)}</td><td>${tl(sum(list)-nk-kt)}</td></tr>`;
+  tb.append(body,tf);tw.append(tb);admIn.append(tw);
+  const ex=E("button","btn ghost","CSV olarak indir");ex.style.cssText="margin-top:16px;padding:11px 22px";
+  ex.onclick=()=>{
+    const rows=[["Tarih","Saat","Ad","Telefon","Hizmet","Usta","Tutar","Ödeme"]].concat(list.sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time)).map(b=>[b.date,b.time,b.name,b.phone,svc(b.svc).name,barber(b.barber).name,b.price,b.paid?b.pay:"bekliyor"]));
+    const csv="﻿"+rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(";")).join("\n");
+    const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));a.download=`hesap-${A.mY}-${pad(A.mM+1)}.csv`;a.click();
+  };
+  admIn.append(ex);
+}
+/* --- Yeni randevu (telefonla / kapıdan gelen) --- */
+function tabNew(){
+  const f=E("form","a-form");
+  f.innerHTML=`<h3 style="margin-bottom:6px">Elle randevu ekle</h3>
+    <label>Ad Soyad</label><input id="mn" required>
+    <label>Telefon</label><input id="mp" type="tel" required>
+    <label>Hizmet</label><select id="ms">${CONFIG.services.map(s=>`<option value="${s.id}">${esc(s.name)} · ${tl(s.price)}</option>`).join("")}</select>
+    <label>Usta</label><select id="mb">${CONFIG.barbers.map(b=>`<option value="${b.id}">${esc(b.name)}</option>`).join("")}</select>
+    <label>Tarih</label><input id="md" type="date" required>
+    <label>Saat</label><select id="mt">${slotsFor().map(t=>`<option>${t}</option>`).join("")}</select>
+    <div class="a-err" id="me"></div><button class="btn" style="width:100%">Randevuyu Kaydet</button>`;
+  f.querySelector("#md").value=A.day;
+  f.onsubmit=e=>{
+    e.preventDefault();
+    const o={name:f.querySelector("#mn").value.trim(),phone:f.querySelector("#mp").value.trim(),svc:+f.querySelector("#ms").value,barber:+f.querySelector("#mb").value,date:f.querySelector("#md").value,time:f.querySelector("#mt").value,manual:true};
+    const er=f.querySelector("#me");
+    if(CONFIG.closedDays.includes(pd(o.date).getDay())){er.textContent="Bu gün kapalı.";return}
+    if(taken(o.date,o.time,o.barber)){er.textContent="Bu saat dolu.";return}
+    addBooking(o);A.day=o.date;A.tab="day";panel();
+  };
+  admIn.append(f);
+}
+
+/* ===== BAŞLAT ===== */
+render();renderWeekPublic();
+if(location.hash==="#admin")openAdmin();
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&adm.classList.contains("on"))closeAdmin()});
+</script>
+</body>
+</html>
